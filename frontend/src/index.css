@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'Outfit', sans-serif;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg: #f8f6f2;
+    --surface: #ffffff;
+    --surface2: #f0ede8;
+    --border: #e5e0d8;
+    --text: #1a1714;
+    --text-muted: #6b6560;
+    --positive: #16a34a;
+    --warning: #d97706;
+    --danger: #dc2626;
+    --accent: #2563eb;
+  }
+
+  .dark {
+    --bg: #0c0e12;
+    --surface: #13161c;
+    --surface2: #1a1e26;
+    --border: #252a35;
+    --text: #f0ede8;
+    --text-muted: #8892a4;
+    --positive: #4ade80;
+    --warning: #fb923c;
+    --danger: #f87171;
+    --accent: #60a5fa;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+}
+
+@layer components {
+  .surface {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .surface2 {
+    background-color: var(--surface2);
+    border: 1px solid var(--border);
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 rounded-xl font-medium text-sm transition-all duration-200;
+    background: var(--accent);
+    color: white;
+  }
+  .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-ghost {
+    @apply px-3 py-1.5 rounded-lg text-sm transition-all duration-200;
+    color: var(--text-muted);
+    background: transparent;
+  }
+  .btn-ghost:hover { background: var(--surface2); color: var(--text); }
+
+  .btn-danger {
+    @apply px-3 py-1.5 rounded-lg text-sm transition-all duration-200;
+    color: var(--danger);
+    background: transparent;
+  }
+  .btn-danger:hover { background: rgba(248, 113, 113, 0.1); }
+
+  .input-field {
+    @apply w-full px-3 py-2 rounded-xl text-sm outline-none transition-all duration-200;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .input-field:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+  }
+  .input-field::placeholder { color: var(--text-muted); }
+
+  .card {
+    @apply rounded-2xl p-5;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .tag {
+    @apply px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full overflow-hidden;
+    background: var(--surface2);
+  }
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-700;
+  }
+}
