@@ -54,7 +54,7 @@ export default function DashboardSummary({ income, fixed, savings, variable, his
   const totalVariable  = variable?.total  || 0;
 
   // 🏦 Solde du compte
-  const soldeCompte      = totalIncome - totalFixedPaid - totalDeposited + totalWithdrawn - totalVariable;
+  const soldeCompte      = totalIncome - totalDeposited + totalWithdrawn - totalVariable;
   const chargesRestantes = totalFixed - totalFixedPaid;
   // 🎉 Pour kiffer
   const pourKiffer       = soldeCompte - chargesRestantes;
