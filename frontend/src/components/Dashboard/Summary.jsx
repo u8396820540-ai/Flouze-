@@ -54,7 +54,7 @@ export default function DashboardSummary({ income, fixed, savings, variable, his
   const totalVariable  = variable?.total  || 0;
 
   // 🏦 Solde du compte
-  const soldeCompte      = totalIncome - totalDeposited + totalWithdrawn - totalVariable;
+  const soldeCompte      = totalIncome - totalFixedPaid - totalDeposited + totalWithdrawn - totalVariable;
   const chargesRestantes = totalFixed - totalFixedPaid;
   // 🎉 Pour kiffer
   const pourKiffer       = soldeCompte - chargesRestantes;
@@ -106,14 +106,14 @@ export default function DashboardSummary({ income, fixed, savings, variable, his
           icon={Wallet} label="Solde du compte"
           value={`${soldeCompte >= 0 ? '+' : ''}${fmt(soldeCompte)}`}
           color={soldeColor}
-          sublabel="Revenus − Épargne versée − Dépenses"
+          sublabel="Revenus − Charges passées − Épargne versée − Dépenses"
           note={soldeCompte < 0 ? '⚠️ Attention, solde négatif !' : undefined}
         />
         <BigCard
           icon={Smile} label="Pour kiffer 🎉"
           value={`${pourKiffer >= 0 ? '+' : ''}${fmt(pourKiffer)}`}
           color={kifColor}
-          sublabel="Solde du compte − Charges fixes"
+          sublabel="Solde du compte − Charges encore à passer"
           note={chargesRestantes > 0
             ? `⏳ ${fmt(chargesRestantes)} de charges encore à passer`
             : '✅ Toutes les charges sont passées'}
