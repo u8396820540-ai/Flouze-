@@ -106,7 +106,7 @@ export default function DashboardSummary({ income, fixed, savings, variable, his
           icon={Wallet} label="Solde du compte"
           value={`${soldeCompte >= 0 ? '+' : ''}${fmt(soldeCompte)}`}
           color={soldeColor}
-          sublabel="Revenus − Épargne versée − Dépenses"
+          sublabel="Revenus − Charges passées − Épargne versée − Dépenses"
           note={soldeCompte < 0 ? '⚠️ Attention, solde négatif !' : undefined}
         />
         <BigCard
