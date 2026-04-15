@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: flouze-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install && npm rebuild better-sqlite3
+    startCommand: node server.js
+    envVars:
+      - key: JWT_SECRET
+        value: flouze_secret_2024
+      - key: FRONTEND_URL
+        value: https://flouze-nine.vercel.app
